@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Webinar demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      
+      fbq.disablePushState = false; //not recommended, but can be done
+
+      fbq('init', '422543219522760');
+      // fbq('track', 'PageView');
+    </script>
+    
+    <!-- <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=404198287859156&ev=PageView&noscript=1"
+    /></noscript> -->
+    <!-- End Facebook Pixel Code --> 
+   <script>
+    var PageViewCount = 0;
+    var ViewContentCount = 0;
+    var AddToCartCount = 0;
+    var PurchaseCount = 0 ;
+   </script>
+  </head>
+  <body > 
+    <div class="container">
+        <div class="container" >
+ <div class="jumbotron d-flex align-items-center min-vh-100 bg-white">
+  <div class="container text-center">
+   <img src="https://www.animatedimages.org/data/media/359/animated-santa-claus-image-0305.gif" class="img-fluid rounded" />
+    <nav class="nav flex-column justify-content-end">
+        <script>
+          function generateEvents(eventName, eventCount, eventCountValue, timeInterval) {
+            setInterval(function() {
+            
+              if (eventName == 'Purchase') {
+                fbq('track', eventName, { value: 4, currency: 'GBP'});
+              } else {
+               fbq('track', eventName);
+              }
+
+              eventCount++;
+              document.getElementById(eventCountValue).innerHTML = eventCount;
+            }, timeInterval);
+          }
+          
+          //document.getElementById("PageViewCountValue").innerHTML = PageViewCount;
+          //document.getElementById("ViewContentCountValue").innerHTML = ViewContentCount;
+          //document.getElementById("AddToCartCountValue").innerHTML = AddToCartCount;
+          //document.getElementById("PurchaseCountValue").innerHTML = PurchaseCount;
+
+          generateEvents ('PageView', PageViewCount, 'PageViewCountValue', 3000);
+          generateEvents ('ViewContent', ViewContentCount, 'ViewContentCountValue', 4000);
+          generateEvents ('AddToCart', AddToCartCount, 'AddToCartCountValue', 5000);
+          generateEvents ('Purchase', PurchaseCount, 'PurchaseCountValue', 7000);
+          
+        </script>
+      <br/>
+      <br/>
+      <a class="nav-link disabled" href="#">PageView: <span id="PageViewCountValue"></span> </a> 
+      <a class="nav-link disabled" href="#">ViewContent: <span id="ViewContentCountValue"></span> </a>
+      <a class="nav-link disabled" href="#">AddToCart: <span id="AddToCartCountValue"></span> </a>
+      <a class="nav-link disabled" href="#">Purchase: <span id="PurchaseCountValue"></span> </a>
+   </nav>
+  </div>
+ </div>
+</div>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
